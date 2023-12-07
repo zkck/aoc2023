@@ -1,15 +1,18 @@
 import sys
 from typing import Counter, Tuple
 
+
 def get_value(c: str):
     if c.isdigit():
         return int(c)
-    return {'A': 14,
-            'K': 13,
-            'Q': 12,
-            'J': 11,
-            'T': 10,
-            }[c]
+    return {
+        "A": 14,
+        "K": 13,
+        "Q": 12,
+        "J": 11,
+        "T": 10,
+    }[c]
+
 
 def bla(cards: str) -> Tuple[int, str]:
     counter = Counter(cards)
@@ -32,7 +35,7 @@ def bla(cards: str) -> Tuple[int, str]:
         # one pair
         rank = 0
     else:
-        assert(len(counter)) == 5
+        assert (len(counter)) == 5
         rank = -1
     return rank, list(map(get_value, cards))
 
