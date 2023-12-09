@@ -1,4 +1,4 @@
--module(tut1).
+-module(solver).
 -export([main/0]).
 
 parse_line(Line) ->
