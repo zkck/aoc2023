@@ -1,4 +1,3 @@
-
 import itertools
 import sys
 
@@ -15,9 +14,11 @@ def galaxies(rows):
             if c == "#":
                 yield i, j
 
+
 def my_range(from_, to):
     from_, to = sorted([from_, to])
     return range(from_, to)
+
 
 def main():
     rows = sys.stdin.read().splitlines()
