@@ -16,12 +16,16 @@ def galaxies(rows):
                 yield i, j
 
 
+def transpose(rows):
+    return [list(r) for r in zip(*rows)]
+
+
 def main():
     rows = sys.stdin.read().splitlines()
     rows = list(expand(rows))
-    rows = [list(r) for r in zip(*rows)]
+    rows = transpose(rows)
     rows = list(expand(rows))
-    rows = [list(r) for r in zip(*rows)]
+    rows = transpose(rows)
     s = 0
     for g1, g2 in itertools.combinations(galaxies(rows), 2):
         s += abs(g1[0] - g2[0]) + abs(g1[1] - g2[1])

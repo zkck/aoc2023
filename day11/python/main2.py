@@ -1,3 +1,4 @@
+import math
 import itertools
 import sys
 
@@ -16,14 +17,13 @@ def galaxies(rows):
 
 
 def my_range(from_, to):
-    from_, to = sorted([from_, to])
-    return range(from_, to)
+    return range(from_, to, int(math.copysign(1, to - from_)))
 
 
 def main():
     rows = sys.stdin.read().splitlines()
     empty_i = {i for i, row in enumerate(rows) if is_empty(row)}
-    empty_j = {i for i, row in enumerate(zip(*rows)) if is_empty(row)}
+    empty_j = {j for j, col in enumerate(zip(*rows)) if is_empty(col)}
 
     s = 0
     for g1, g2 in itertools.combinations(galaxies(rows), 2):
